@@ -4,7 +4,6 @@
     @endisset
 
     <input
-        {{ $attributes->class('input')->merge(['type' => 'text']) }}
         @isset($name))
             name="{{ $name }}"
         @endisset
@@ -14,9 +13,10 @@
         @isset($value))
             value="{{ $value }}"
         @endisset
+        {{ $attributes->class(['input', 'has-error' => isset($name, $errors) && $errors->has($name)])->merge(['type' => 'text']) }}
     />
 
-    @if (isset($name) && $errors->has($name))
+    @if (isset($name, $errors) && $errors->has($name))
         <x-input-error>{{ $errors->first($name) }}</x-input-error>
     @endif
 </div>

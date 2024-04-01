@@ -4,15 +4,14 @@
     @endisset
 
     <textarea
-        {{ $attributes->class('textarea') }}
         name="{{ $name }}"
         @if (isset($id) || isset($label))
             id="{{ $getId() }}"
         @endif
-
+        {{ $attributes->class(['textarea', 'has-error' => isset($name, $errors) && $errors->has($name)]) }}
     >{{ $value }}</textarea>
 
-    @if (isset($name) && $errors->has($name))
+    @if (isset($name, $errors) && $errors->has($name))
         <x-input-error>{{ $errors->first($name) }}</x-input-error>
     @endif
 </div>

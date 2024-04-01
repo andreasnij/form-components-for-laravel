@@ -14,14 +14,14 @@
             @if ($checked)
                 checked
             @endif
-            {{ $attributes->class('radio') }}
+            {{ $attributes->class(['radio', 'has-error' => isset($name, $errors) && $errors->has($name)]) }}
         />
         @isset($label)
             <x-label for="{{ $getId() }}" class="{{ $labelClass }}">{{ $label }}</x-label>
         @endisset
     </div>
 
-    @if (isset($name) && $errors->has($name))
+    @if (isset($name, $errors) && $errors->has($name))
         <x-input-error>{{ $errors->first($name) }}</x-input-error>
     @endif
 </div>

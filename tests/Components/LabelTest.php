@@ -13,8 +13,7 @@ class LabelTest extends TestCase
     #[Test]
     public function label_can_be_rendered()
     {
-        $view = $this->withViewErrors([])
-            ->blade('<x-label for="test-id">Test label</x-label>');
+        $view = $this->blade('<x-label for="test-id">Test label</x-label>');
 
         $view->assertSee('<label for="test-id" class="label">Test label</label>', false);
     }

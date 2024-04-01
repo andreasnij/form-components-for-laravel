@@ -13,8 +13,7 @@ class FormTest extends TestCase
     #[Test]
     public function form_can_be_rendered()
     {
-        $view = $this->withViewErrors([])
-            ->blade('<x-form />');
+        $view = $this->blade('<x-form />');
 
         $view->assertSee('<form method="POST"', false);
     }

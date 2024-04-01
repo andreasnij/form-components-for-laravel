@@ -13,8 +13,7 @@ class SelectTest extends TestCase
     #[Test]
     public function select_can_be_rendered()
     {
-        $view = $this->withViewErrors([])
-            ->blade('<x-select label="Test label" name="test_name"/>');
+        $view = $this->blade('<x-select label="Test label" name="test_name"/>');
 
         $view->assertSee('Test label');
         $view->assertSee('<select', false);

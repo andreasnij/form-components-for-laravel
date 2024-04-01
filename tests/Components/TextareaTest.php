@@ -13,8 +13,7 @@ class TextareaTest extends TestCase
     #[Test]
     public function textarea_can_be_rendered()
     {
-        $view = $this->withViewErrors([])
-            ->blade('<x-textarea label="Test label" name="test_name"/>');
+        $view = $this->blade('<x-textarea label="Test label" name="test_name"/>');
 
         $view->assertSee('Test label');
         $view->assertSee('<textarea', false);

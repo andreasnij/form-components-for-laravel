@@ -13,8 +13,7 @@ class CheckboxTest extends TestCase
     #[Test]
     public function checkbox_can_be_rendered()
     {
-        $view = $this->withViewErrors([])
-            ->blade('<x-checkbox label="Test label" name="test_name"/>');
+        $view = $this->blade('<x-checkbox label="Test label" name="test_name"/>');
 
         $view->assertSee('Test label');
         $view->assertSee('type="checkbox"', false);

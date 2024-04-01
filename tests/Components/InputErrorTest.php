@@ -13,8 +13,7 @@ class InputErrorTest extends TestCase
     #[Test]
     public function input_error_can_be_rendered()
     {
-        $view = $this->withViewErrors([])
-            ->blade('<x-input-error>Some error</x-input-error>');
+        $view = $this->blade('<x-input-error>Some error</x-input-error>');
 
 
         $view->assertSee('<div class="input-error"', false);

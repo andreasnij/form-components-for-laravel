@@ -13,8 +13,7 @@ class InputTest extends TestCase
     #[Test]
     public function input_can_be_rendered()
     {
-        $view = $this->withViewErrors([])
-            ->blade('<x-input label="Test label" name="test_name"/>');
+        $view = $this->blade('<x-input label="Test label" name="test_name"/>');
 
         $view->assertSee('Test label');
         $view->assertSee('<input', false);

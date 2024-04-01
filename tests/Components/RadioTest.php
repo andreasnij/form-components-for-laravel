@@ -13,8 +13,7 @@ class RadioTest extends TestCase
     #[Test]
     public function radio_can_be_rendered()
     {
-        $view = $this->withViewErrors([])
-            ->blade('<x-radio label="Test label" name="test_name"/>');
+        $view = $this->blade('<x-radio label="Test label" name="test_name"/>');
 
         $view->assertSee('Test label');
         $view->assertSee('type="radio"', false);

@@ -4,11 +4,11 @@
     @endisset
 
     <select
-        {{ $attributes->class('select') }}
         name="{{ $name }}"
         @if (isset($id) || isset($label))
             id="{{ $getId() }}"
         @endif
+        {{ $attributes->class(['select', 'has-error' => isset($name, $errors) && $errors->has($name)]) }}
     >
 
         @if ($placeholder)
@@ -37,7 +37,7 @@
 
     </select>
 
-    @if (isset($name) && $errors->has($name))
+    @if (isset($name, $errors) && $errors->has($name))
         <x-input-error>{{ $errors->first($name) }}</x-input-error>
     @endif
 </div>

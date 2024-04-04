@@ -15,6 +15,8 @@ class Radio extends AbstractInputComponent
         public ?string $id = null,
         bool $checked = false,
         public ?string $labelClass = null,
+        public bool $showError = true,
+        public string|false|null $groupClass = null,
     ) {
         $this->setChecked($checked);
     }

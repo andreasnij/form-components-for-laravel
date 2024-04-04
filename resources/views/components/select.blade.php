@@ -1,4 +1,4 @@
-<div class="form-group">
+<div @class($groupClass === null ? 'form-group' : $groupClass)>
     @isset($label)
         <x-label for="{{ $getId() }}">{{ $label }}</x-label>
     @endisset
@@ -37,7 +37,7 @@
 
     </select>
 
-    @if (isset($name, $errors) && $errors->has($name))
-        <x-input-error>{{ $errors->first($name) }}</x-input-error>
+    @if ($hasErrorAndShouldShow())
+        <x-input-error>{{ $errors->first($getDotName()) }}</x-input-error>
     @endif
 </div>

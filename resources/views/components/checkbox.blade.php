@@ -1,4 +1,4 @@
-<div class="checkbox-group">
+<div @class($groupClass === null ? 'checkbox-group' : $groupClass)>
     <div class="checkbox-container">
         <input
             type="checkbox"
@@ -23,7 +23,7 @@
         @endif
     </div>
 
-    @if (isset($name, $errors) && $errors->has($name))
-        <x-input-error>{{ $errors->first($name) }}</x-input-error>
+    @if ($hasErrorAndShouldShow())
+        <x-input-error>{{ $errors->first($getDotName()) }}</x-input-error>
     @endif
 </div>

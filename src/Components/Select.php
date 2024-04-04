@@ -13,8 +13,10 @@ class Select extends AbstractInputComponent
         public ?string $id = null,
         public array $options = [],
         public ?string $placeholder = null,
+        public bool $showError = true,
+        public string|false|null $groupClass = null,
     ) {
-        parent::__construct($label, $name, $value, $id);
+        $this->setValue($value);
     }
 
     public function render(): View

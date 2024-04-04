@@ -1,4 +1,4 @@
-<div class="radio-group">
+<div @class($groupClass === null ? 'radio-group' : $groupClass)>
     <div class="radio-container">
         <input
             type="radio"
@@ -23,7 +23,7 @@
         @endif
     </div>
 
-    @if (isset($name, $errors) && $errors->has($name))
-        <x-input-error>{{ $errors->first($name) }}</x-input-error>
+    @if ($hasErrorAndShouldShow())
+        <x-input-error>{{ $errors->first($getDotName()) }}</x-input-error>
     @endif
 </div>

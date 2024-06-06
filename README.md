@@ -14,7 +14,7 @@ $ composer require andreasnij/form-components-for-laravel
 ```php
 <x-form method="PATCH" action="{{ route('products.update', $product) }}" :model="$product">
     
-    <x-form.input label="Name" name="name" />
+    <x-input label="Name" name="name" />
     
     <button type="submit">Save</button>
     

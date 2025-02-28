@@ -40,6 +40,6 @@ class Checkbox extends AbstractInputComponent
             $checked = (bool) $modelChecked;
         }
 
-        $this->checked = (bool) old($this->name, $checked);
+        $this->checked = (bool) old($this->name, (string) $checked);
     }
 }

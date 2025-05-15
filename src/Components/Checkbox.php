@@ -6,7 +6,7 @@ use Illuminate\Contracts\View\View;
 
 class Checkbox extends AbstractInputComponent
 {
-    public bool $checked;
+    public bool $checked = false;
 
     public function __construct(
         public ?string $label = null,

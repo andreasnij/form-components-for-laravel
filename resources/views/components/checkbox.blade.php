@@ -8,7 +8,7 @@
             @if (isset($id) || isset($label) || isset($slot))
                 id="{{ $getId() }}"
             @endif
-            @isset($value))
+            @isset($value)
                 value="{{ $value }}"
             @endisset
             @if ($checked)

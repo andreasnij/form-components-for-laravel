@@ -4,13 +4,13 @@
     @endisset
 
     <input
-        @isset($name))
+        @isset($name)
             name="{{ $name }}"
         @endisset
         @if (isset($id) || isset($label))
             id="{{ $getId() }}"
         @endif
-        @isset($value))
+        @isset($value)
             value="{{ $value }}"
         @endisset
         {{ $attributes->class(['input', 'has-error' => isset($name, $errors) && $errors->has($name)])->merge(['type' => 'text']) }}

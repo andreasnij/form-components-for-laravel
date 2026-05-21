@@ -12,7 +12,7 @@
     >
 
         @if ($placeholder)
-            <option value="" disabled @if($value === null) selected @endif>
+            <option value="">
                 {{ $placeholder }}
             </option>
         @endif

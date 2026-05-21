@@ -2,6 +2,7 @@
 
 namespace FormComponentsForLaravel\Components;
 
+use BackedEnum;
 use Illuminate\Contracts\View\View;
 
 class Radio extends AbstractInputComponent
@@ -37,13 +38,22 @@ class Radio extends AbstractInputComponent
             && Form::$model && empty(old())
             && ($modelValue = data_get(Form::$model, $this->name)) !== null
         ) {
-            $checked = $modelValue == $this->value;
+            $checked = $this->matchesValue($modelValue);
         }
 
         if (($oldValue = old($this->name)) !== null) {
-            $this->checked = $oldValue == $this->value;
+            $this->checked = $this->matchesValue($oldValue);
         } else {
             $this->checked = $checked;
         }
+    }
+
+    private function matchesValue(mixed $value): bool
+    {
+        if ($value instanceof BackedEnum) {
+            $value = $value->value;
+        }
+
+        return $this->value !== null && (string) $this->value === (string) $value;
     }
 }

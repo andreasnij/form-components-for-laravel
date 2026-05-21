@@ -26,6 +26,6 @@ class Select extends AbstractInputComponent
 
     public function isSelected(string|int $key): bool
     {
-        return $this->value == $key;
+        return $this->value !== null && (string) $this->value === (string) $key;
     }
 }

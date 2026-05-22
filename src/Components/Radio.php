@@ -29,7 +29,7 @@ class Radio extends AbstractInputComponent
 
     protected function setChecked(bool $checked): void
     {
-        if (!$this->name && $this->value === null) {
+        if (!$this->name || $this->value === null) {
             return;
         }
 
@@ -54,6 +54,6 @@ class Radio extends AbstractInputComponent
             $value = $value->value;
         }
 
-        return $this->value !== null && (string) $this->value === (string) $value;
+        return is_scalar($value) && (string) $this->value === (string) $value;
     }
 }
